@@ -1,11 +1,14 @@
 import asyncio
+import logging
+import os
+import random
+
 from aiogram import Bot, Dispatcher, types
 from dotenv import load_dotenv
 from os import getenv
 from aiogram.filters import Command
-import logging
-import os
-import random
+
+
 
 
 load_dotenv()
