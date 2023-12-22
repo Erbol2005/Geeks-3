@@ -9,7 +9,14 @@ from handlers import (
     survey_shop,
     echo_router
 )
+from db.queries import init_db, create_tables, populate_tables
 
+
+async def on_startup(dispatcher):
+    print('Бот вышел в онлайн')
+    init_db()
+    create_tables()
+    populate_tables()
 
 async def main():
     await bot.set_my_commands([
@@ -23,7 +30,10 @@ async def main():
     dp.include_router(anime_router)
     dp.include_router(pic_router)
     dp.include_router(survey_shop)
+
     dp.include_router(echo_router)
+
+    dp.startup.register(on_startup)
 
     await dp.start_polling(bot)
 

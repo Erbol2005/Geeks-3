@@ -1,6 +1,9 @@
 from aiogram import Router, F, types
 from aiogram.filters import Command
 
+from db.queries import get_anime
+
+
 anime_router = Router()
 
 @anime_router.message(Command("assortment"))
@@ -14,6 +17,9 @@ async def show_categories(message: types.Message):
             [
                 types.KeyboardButton(text="stationery"),
                 types.KeyboardButton(text="other"),
+            ],
+            [
+                types.KeyboardButton(text="anime")
             ]
         ],
         resize_keyboard=True
@@ -39,3 +45,11 @@ async def stationery(message: types.Message):
 async def other(message: types.Message):
     kb = types.ReplyKeyboardRemove()
     await message.answer("Другие удивительные товары для настоящих фанатов аниме и манги.", reply_markup=kb)
+
+@anime_router.message(F.text.lower() == "anime")
+async def anime(message: types.Message):
+    anime_list = get_anime()
+    response = "Вот три аниме и их продолжительность:\n"
+    for anime in anime_list:
+        response += f"Название: {anime[1]}, Эпизоды: {anime[2]}, Продолжительность: {anime[3]}\n"
+    await message.answer(response)
