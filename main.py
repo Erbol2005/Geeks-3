@@ -1,12 +1,13 @@
 import asyncio
 import logging
 from aiogram import types
-from Bot import bot, dp
+from Bot import bot, dp, scheduler
 from handlers import (
     start_router,
     anime_router,
     pic_router,
     survey_shop,
+    napomni_router,
     echo_router
 )
 from db.queries import init_db, create_tables, populate_tables
@@ -30,10 +31,11 @@ async def main():
     dp.include_router(anime_router)
     dp.include_router(pic_router)
     dp.include_router(survey_shop)
-
+    dp.include_router(napomni_router)
     dp.include_router(echo_router)
 
     dp.startup.register(on_startup)
+    scheduler.start()
 
     await dp.start_polling(bot)
 
