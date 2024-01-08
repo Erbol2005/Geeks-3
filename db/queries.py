@@ -60,10 +60,10 @@ def populate_tables():
         ('Ручки', 234, 'В наличии')
     """)
     cursor.execute("""
-        INSERT INTO figures (name, long, image) VALUES 
-        ('Баянета', 30, 'Byoneta.webp'),
-        ('2B', 15, '2B.webp'),
-        ('Альбедо', 40, 'Albedo.webp')
+        INSERT INTO figures (name, long, image) VALUES
+        ('Баянета', 30, 'https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fkingame.ru%2Fwp-content%2Fuploads%2Ff%2Fb%2F8%2Ffb8800b7d1f95df0777189b57937fc3d.jpeg&lr=10309&pos=1&rpt=simage&text=%D0%B1%D0%B0%D0%B9%D0%BE%D0%BD%D0%B5%D1%82%D1%82%D0%B0%20%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%BA%D0%B8'),
+        ('2B', 15, 'https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fae01.alicdn.com%2Fkf%2FH4a61cc573c3b4259abeadc007010197d6%2FNieR-Automata-YoRHa-No-2-Type-B-2B-PVC-Figure-Collectible-Model-Toy.jpg&lr=10309&pos=0&rpt=simage&text=2B%20%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%BA%D0%B8'),
+        ('Альбедо', 40, 'https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fwoody-comics.ru%2Fimages%2Fthumbnails%2F1959%2F1444%2Fdetailed%2F96%2F38bad4190045521e2e676669afe61921.jpg&lr=10309&pos=12&rpt=simage&text=%D0%90%D0%BB%D1%8C%D0%B1%D0%B5%D0%B4%D0%BE%20%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%BA%D0%B8')
     """)
     db.commit()
 

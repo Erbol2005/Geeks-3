@@ -28,7 +28,7 @@ async def figures(message: types.Message):
     kb = types.ReplyKeyboardRemove()
     await message.answer("Фигурки персонажей из игр и манги!", reply_markup=kb)
     for figur in figures_list:
-        await message.answer(f"Название{figur[1]}, Высота: {figur[2]}, Фото: {figur[3]}\n")
+        await message.answer(f"Название: {figur[1]}, Высота: {figur[2]}, Фото: {figur[3]}\n")
 
 
 @anime_router.message(F.text.lower() == "stationery")
